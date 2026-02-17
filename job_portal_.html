@@ -28,29 +28,42 @@
     <h1>Your Dream Job is Waiting</h1>
     <img src="office.jpg" alt="Office working professionals" width="500">
     <br><br>
+    <div>
     <button>Find a Job</button>
     <button>Find a Candidate</button>
+</div>
+
 </section>
 
 <hr>
 
 <section>
-    <h2>Search Jobs</h2>
-    <form>
-        <input type="text" placeholder="Job title">
+    <h2>Post a Job</h2>
+
+    <form id="jobForm">
+        <input type="text" id="title" placeholder="Job title" required>
         <br><br>
-        <select>
-            <option>Category</option>
+
+        <select id="category">
+            <option value="">Category</option>
             <option>IT</option>
             <option>Marketing</option>
             <option>Finance</option>
         </select>
         <br><br>
-        <input type="text" placeholder="Location">
+
+        <input type="text" id="location" placeholder="Location" required>
         <br><br>
-        <button>Search</button>
+
+        <button type="submit">Add Job</button>
     </form>
 </section>
+
+<section>
+    <h2>Available Jobs</h2>
+    <div id="jobList"></div>
+</section>
+
 
 <hr>
 
@@ -83,6 +96,7 @@
 <footer>
     &copy; 2026 JobPortal. All rights reserved.
 </footer>
+<script src="script.js"></script>
 
 </body>
 </html>
