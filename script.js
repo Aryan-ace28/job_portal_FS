@@ -1,20 +1,20 @@
-const form = document.getElementById("jobForm");
+const jobForm = document.getElementById("jobForm");
 const jobList = document.getElementById("jobList");
+const searchForm = document.getElementById("searchForm");
+const searchInput = document.getElementById("searchInput");
 
-form.addEventListener("submit", function(e) {
+/* ADD JOB */
+jobForm.addEventListener("submit", function(e) {
     e.preventDefault();
 
     const title = document.getElementById("title").value;
     const category = document.getElementById("category").value;
     const location = document.getElementById("location").value;
 
-    if(title === "" || category === "" || location === "") {
-        alert("Please fill all fields");
-        return;
-    }
+    if (!title || !category || !location) return;
 
     createJobCard(title, category, location);
-    form.reset();
+    jobForm.reset();
 });
 
 function createJobCard(title, category, location) {
@@ -24,13 +24,10 @@ function createJobCard(title, category, location) {
 
     card.innerHTML = `
         <h3>${title}</h3>
-        <p><strong>Category:</strong> ${category}</p>
-        <p><strong>Location:</strong> ${location}</p>
-
-        <div class="card-buttons">
-            <button class="update-btn">Update</button>
-            <button class="delete-btn">Delete</button>
-        </div>
+        <p class="card-category"><strong>Category:</strong> ${category}</p>
+        <p class="card-location"><strong>Location:</strong> ${location}</p>
+        <button class="update-btn">Update</button>
+        <button class="delete-btn">Delete</button>
     `;
 
     card.querySelector(".delete-btn").addEventListener("click", function() {
@@ -38,16 +35,42 @@ function createJobCard(title, category, location) {
     });
 
     card.querySelector(".update-btn").addEventListener("click", function() {
-        const newTitle = prompt("Enter new job title:", title);
+        const newTitle = prompt("Enter new title:", title);
         const newCategory = prompt("Enter new category:", category);
         const newLocation = prompt("Enter new location:", location);
 
-        if(newTitle && newCategory && newLocation) {
+        if (newTitle && newCategory && newLocation) {
             card.querySelector("h3").textContent = newTitle;
-            card.querySelectorAll("p")[0].innerHTML = "<strong>Category:</strong> " + newCategory;
-            card.querySelectorAll("p")[1].innerHTML = "<strong>Location:</strong> " + newLocation;
+            card.querySelector(".card-category").innerHTML =
+                "<strong>Category:</strong> " + newCategory;
+            card.querySelector(".card-location").innerHTML =
+                "<strong>Location:</strong> " + newLocation;
         }
     });
 
     jobList.appendChild(card);
 }
+
+/* SEARCH FEATURE */
+searchForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const searchValue = searchInput.value.toLowerCase();
+    const cards = document.querySelectorAll(".job-card");
+
+    cards.forEach(function(card) {
+        const title = card.querySelector("h3").textContent.toLowerCase();
+        const category = card.querySelector(".card-category").textContent.toLowerCase();
+        const location = card.querySelector(".card-location").textContent.toLowerCase();
+
+        if (
+            title.includes(searchValue) ||
+            category.includes(searchValue) ||
+            location.includes(searchValue)
+        ) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+});

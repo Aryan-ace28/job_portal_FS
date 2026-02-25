@@ -2,101 +2,96 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Portal</title>
-<link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<div class="container">
+
 <header>
     <h2>JobPortal</h2>
-    <nav>
-        <a href="#">Home</a> |
-        <a href="#">About</a> |
-        <a href="#">Blog</a> |
-        <a href="#">Contact</a> |
-        <a href="#">Post a Job</a> |
-        <a href="#">Want a Job</a>
-    </nav>
 </header>
 
-<hr>
-
-<section>
-    <p>We have thousands of job offers for you</p>
-    <h1>Your Dream Job is Waiting</h1>
-    <img src="office.jpg" alt="Office working professionals" width="500">
-    <br><br>
-    <div>
-    <button>Find a Job</button>
-    <button>Find a Candidate</button>
-</div>
-
+<section class="hero">
+    <h1>🚀 Your Dream Job is Waiting</h1>
+    <p>Post, manage and search jobs easily</p>
 </section>
 
-<hr>
-
-<section>
+<section class="form-section">
     <h2>Post a Job</h2>
 
     <form id="jobForm">
-        <input type="text" id="title" placeholder="Job title" required>
-        <br><br>
+        <input type="text" id="title" placeholder="Job Title" required>
 
-        <select id="category">
+        <select id="category" required>
             <option value="">Category</option>
             <option>IT</option>
             <option>Marketing</option>
             <option>Finance</option>
         </select>
-        <br><br>
 
         <input type="text" id="location" placeholder="Location" required>
-        <br><br>
 
         <button type="submit">Add Job</button>
     </form>
 </section>
 
-<section>
+<section class="search-section">
+    <h2>Search Jobs</h2>
+
+    <form id="searchForm">
+        <input type="text" id="searchInput" placeholder="Search by title, category or location...">
+        <button type="submit">Search</button>
+    </form>
+</section>
+
+<section class="jobs-section">
     <h2>Available Jobs</h2>
     <div id="jobList"></div>
 </section>
 
-
-<hr>
-
-<section>
-    <h2>Why Choose Us</h2>
-
-    <article>
-        <h3>Search Millions of Jobs</h3>
-        <p>Find jobs from top companies easily.</p>
-    </article>
-
-    <article>
-        <h3>Easy to Manage Jobs</h3>
-        <p>Apply and manage job applications.</p>
-    </article>
-
-    <article>
-        <h3>Top Careers</h3>
-        <p>Get access to top career opportunities.</p>
-    </article>
-
-    <article>
-        <h3>Search Expert Candidates</h3>
-        <p>Companies can find skilled candidates.</p>
-    </article>
+<section class="stats-section">
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h2>1200+</h2>
+            <p>Jobs Posted</p>
+        </div>
+        <div class="stat-card">
+            <h2>800+</h2>
+            <p>Active Candidates</p>
+        </div>
+        <div class="stat-card">
+            <h2>350+</h2>
+            <p>Companies Registered</p>
+        </div>
+    </div>
 </section>
 
-<hr>
+<section class="testimonial-section">
+    <h2>What Users Say</h2>
+    <div class="testimonial-grid">
+        <div class="testimonial-card">
+            <p>"This portal helped me land my dream job within a week!"</p>
+            <h4>- Aryan S.</h4>
+        </div>
+        <div class="testimonial-card">
+            <p>"Very clean interface and easy job management."</p>
+            <h4>- Riya M.</h4>
+        </div>
+        <div class="testimonial-card">
+            <p>"The update and delete features are very convenient."</p>
+            <h4>- Kunal R.</h4>
+        </div>
+    </div>
+</section>
 
 <footer>
-    &copy; 2026 JobPortal. All rights reserved.
+    &copy; 2026 JobPortal
 </footer>
-<script src="script.js"></script>
 
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
